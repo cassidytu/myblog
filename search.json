@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "posts/finalproject.html",
+    "href": "posts/finalproject.html",
+    "title": "myblog",
+    "section": "",
+    "text": "This project looks into cosmetic companies and their most popular liquid foundation line shade ranges. The data explores and analyzes the characteristics of these shade ranges to learn more about shade availability from beauty brands in the US and around the world. Here, the project seeks to investigate the diversity and inclusion (or lack of) in foundation products.\n\n\n\nHow inclusive and diverse are beauty brands around the world?: In regards to foundation shade ranges\n\n\n\nPeople of color often face a lack of diversity and inclusivity in society, from education to entertainment and the beauty industry is no exemption. Many major beauty brands create products that fail to cater to users who have darker skintones, with a limited range and a lack variations in undertones. Inclusivity and accessibility for darker skintones is the bare minimum for beauty brands that seems to be non-existent, unfortunately.\n\n\n\nDataset: https://www.kaggle.com/datasets/shivamb/makeup-shades-dataset \n\n\n\n\n\n\nThis dataset represents the shade ranges of foundation offered by beauty brands around the world.   A list of “best seller” beauty brands in the US, Nigeria, India, and Japan was curated, verified through several sources in their home countries. During May 2018, each brand’s website was visited and the liquid foundation line that (at the time of our sampling) had the largest number of shades available was selected to be recorded. The hex color values for each of the colored swatches shown for the product was documented. Then, using Adobe Photoshop, the lightness value of each color (using the CIE Lab color model) was extracted. Sources consulted to decide what brands/products to sample:  US bestseller lists: POPSUGAR, Amazon, StyleCaster, Refinery29, Statista, BEAUTY/crew  Articles recommending beauty products to people of color: VIBE, Byrdie, The FADER, Allure, Glamour, Fast Company, THE CUT, Bustle, HuffPost, more.com, BuzzFeed, Refinery29  Articles recommending Nigerian beauty products: BeautyInLagos, Beauty Geek, Lux Afrique, Zikel Cosmetics, Pulse.ng Pulse.ng again, Information Nigeria Women, Girly Essentials, Winnie The Make-Up Artist, Jumia Travel  Group Column Definition:  • 0: Fenty Beauty’s PRO FILT’R Foundation Only  • 1: Make Up For Ever’s Ultra HD Foundation Only  • 2: US Best Sellers  • 3: BIPOC-recommended Brands with BIPOC Founders  • 4: BIPOC-recommended Brands with White Founders  • 5: Nigerian Best Sellers  • 6: Japanese Best Sellers  • 7: Indian Best Sellers \n\n\n\n\nlink = 'https://raw.githubusercontent.com/the-pudding/data/master/makeup-shades/shades.csv'\nshadesdf = pd.read_csv(link)\nshadesdf['L'].describe() #lightness\n\ncount    625.000000\nmean      65.920000\nstd       17.512267\nmin       11.000000\n25%       55.000000\n50%       71.000000\n75%       79.000000\nmax       95.000000\nName: L, dtype: float64\n\n\n\n\n\nshadesdf['L'].plot(kind='hist')\n\n<AxesSubplot: ylabel='Frequency'>\n\n\n\n\n\n\nname = shadesdf.loc[:,'brand']\nproduct = shadesdf.loc[:,'L']\nplt.figure(figsize=(5,8))\nplt.barh(name, product)\nplt.show()\n\n\n\n\n\nshadesdf['L'].plot(kind='box')\n\n<AxesSubplot: >\n\n\n\n\n\n\nshadesdf.plot(x='group', y='L', kind='scatter')\n\n<AxesSubplot: xlabel='group', ylabel='L'>\n\n\n\n\n\n\n\n\n\n\n\n\n\nBox Plots of Lightness (of each brand in each country compared to Fenty Beauty); emphasis on shade range as well as revealing where most of the ranges are\nHistograms of Lightness (of each country); show overview of range common in each country to see if there is any affinity to a lighter/darker shade in the most popular brands\nHorizontal Bar Plot of Darkest Shade (of each brand); show where all the brands stand in terms of being inclusive to darker skintones in comparison to each other\nHistograms of Lightness (of recommended brands with bipoc vs white founders); reveal what different founders considers to be “inclusive”"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "myblog",
+    "section": "",
+    "text": "Diversity in Beauty: Shade Ranges\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nMar 12, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nMar 9, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+  }
+]
