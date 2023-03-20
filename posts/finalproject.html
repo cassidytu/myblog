@@ -185,22 +185,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This project was created for a digital humanities course, exploring Python within the lens of how it can be used in the humanities, taught by Professor Ben Winjum at UCLA in Winter of 2023. <br><br></p>
 <p>I chose a dataset from The Pudding essay <a href="https://pudding.cool/2018/06/makeup-shades/">“Beauty Brawl”</a>, which presents the shade ranges of foundation lines offered by beauty brands in four different countries. <a href="https://github.com/the-pudding/data/blob/master/makeup-shades/shades.csv">Find the Shades Dataset here.</a></p>
 </section>
+</section>
+<section id="the-narrative" class="level1">
+<h1>The Narrative</h1>
+<p>People of color often face a lack of diversity and inclusivity in society, from education to entertainment and the beauty industry is no exemption. Many major beauty brands create products that fail to cater to users who have darker skin tones, with a limited range and a lack of variations in undertones. Inclusivity and accessibility for darker skin tones is the bare minimum for beauty brands that seems to be non-existent, unfortunately.</p>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
-<section id="summary" class="level3">
-<h3 class="anchored" data-anchor-id="summary">Summary:</h3>
-<p>This dataset represents the shade ranges of foundation offered by beauty brands around the world. <br> <br> A list of “best seller” beauty brands in the US, Nigeria, India, and Japan was curated, verified# The Narrative</p>
-<p>People of color often face a lack of diversity and inclusivity in society, from education to entertainment and the beauty industry is no exemption. Many major beauty brands create products that fail to cater to users who have darker skin tones, with a limited range and a lack of variations in undertones. Inclusivity and accessibility for darker skin tones is the bare minimum for beauty brands that seems to be non-existent, unfortunately.</p>
-</section>
-</section>
-<section id="data-1" class="level2">
-<h2 class="anchored" data-anchor-id="data-1">Data</h2>
 <p>The data presents the shades of foundation offered by a variety of beauty brands around the world, specifically the U.S., Nigeria, Japan, and India. <br><br></p>
 <p><strong>Group Column Definition:</strong> <br> • 0: Fenty Beauty’s PRO FILT’R Foundation Only <br> • 1: Make Up For Ever’s Ultra HD Foundation Only <br> • 2: US Best Sellers <br> • 3: BIPOC-recommended Brands with BIPOC Founders <br> • 4: BIPOC-recommended Brands with White Founders <br> • 5: Nigerian Best Sellers <br> • 6: Japanese Best Sellers <br> • 7: Indian Best Sellers <br></p>
 <p>Understanding the <em>group</em> breakdown allows for us to quickly compare the foundation shade ranges of each category.</p>
 <section id="methodology" class="level3">
 <h3 class="anchored" data-anchor-id="methodology">Methodology</h3>
-<p>A list of “best seller” beauty brands in the US, Nigeria, India, and Japan was curated, verified through several sources in their home countries. During May 2018, each brand’s website was visited and the liquid foundation line that (at the time of our sampling) had the largest number of shades available was selected to be recorded. The hex color values for each of the colored swatches shown for the product was documented. Then, using Adobe Photoshop, the lightness value of each color (using the CIE Lab color model) was extracted. Sources consulted to decide what brands/products to sample: <br><br> <strong>US bestseller lists</strong>: POPSUGAR, Amazon, StyleCaster, Refinery29, Statista, BEAUTY/crew <br><br> <strong>Articles recommending beauty products to people of color</strong>: VIBE, Byrdie, The FADER, Allure, Glamour, Fast Company, THE CUT, Bustle, HuffPost, more.com, BuzzFeed, Refinery29 <br><br> <strong>Articles recommending Nigerian beauty products</strong>: BeautyInLagos, Beauty Geek, Lux Afrique, Zikel Cosmetics, Pulse.ng Pulse.ng again, Information Nigeria Women, Girly Essentials, Winnie The Make-Up Artist, Jumia Travel <br><br> I created two sorted datasets from The Pudding’s dataset that organized the brands according to groups (also creating a new column that separated each brand by country). One of the datasets (sorted_shades) I had cleaned consists of only the darkest and lightest shade offered by each brand, as this was the primary data I focused on for visualizations through several sources in their home countries. <br><br></p>
+<p>A list of “best seller” beauty brands in the US, Nigeria, India, and Japan was curated, verified through several sources in their home countries. The hex color values for each of the colored swatches shown for the product was documented. Then, using Adobe Photoshop, the lightness value of each color (using the CIE Lab color model) was extracted.</p>
+<p><br> I created two sorted datasets from The Pudding’s dataset that organized the brands according to groups (also creating a new column that separated each brand by country). One of the datasets (sorted_shades) I had cleaned consists of only the darkest and lightest shade offered by each brand, as this was the primary data I focused on for visualizations through several sources in their home countries. <br><br></p>
 <p>Throughout the project, I will be primarily focusing on the <em>lightness</em> value and plotting out the lightest and darkest shade each brand offers reveals how extensive their range is.</p>
 </section>
 </section>
@@ -208,7 +205,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="findings" class="level1">
 <h1>Findings</h1>
 <p>I created my visualizations in ways that would present more information that was easy to read. Color coordinating the different country groups is also helpful to remphasizing the question of diversity in beauty brands around the world.</p>
-<div class="cell" data-execution_count="1">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.patches <span class="im">as</span> mpatches</span>
@@ -216,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>shadesdf <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/cassidytu/dh140/main/shades.csv'</span>)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>sortedshadesdf <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/cassidytu/dh140/main/shades_sorted.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>shadesdf.plot(x<span class="op">=</span><span class="st">'country'</span>, y<span class="op">=</span><span class="st">'L'</span>, </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>              kind<span class="op">=</span><span class="st">'scatter'</span>, </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>              title<span class="op">=</span><span class="st">'Foundation Range Across the World'</span>, </span>
@@ -225,11 +222,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#set x-axis ticks to country names</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'US'</span>, <span class="st">'Nigeria'</span>, <span class="st">'Japan'</span>, <span class="st">'India'</span>]</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>plt.xticks([<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], labels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>([&lt;matplotlib.axis.XTick at 0x7f4438d5a2f0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f4438d5a2c0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f4438d5bc70&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f4438dc2c80&gt;],
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>([&lt;matplotlib.axis.XTick at 0x7f443692d210&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f443692d1e0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f443692e8f0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f4436959cc0&gt;],
  [Text(0, 0, 'US'),
   Text(1, 0, 'Nigeria'),
   Text(2, 0, 'Japan'),
@@ -241,7 +238,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><em>Note: I reorganized the data so that the groups were simplified to solely include countries as the main category. This would allow for a clear distinction between the different countries compared to the previous version. I also added labels to the x-axis ticks to make the graph easier to read.</em> <br><br></p>
 <p>The scatter plot clearly reveals that US beauty brands have a more extensive range in shades. It is also noticeable that in comparison to the other countries, Japan and India, have a cosmetic companies that have a tendency to cater to lighter skin tones.</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#extract sections of the dataset; best sellers of each country</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>us <span class="op">=</span> shadesdf.loc[<span class="dv">82</span>:<span class="dv">246</span>]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>nigeria <span class="op">=</span> shadesdf.loc[<span class="dv">444</span>:<span class="dv">493</span>]</span>
@@ -276,7 +273,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><em>Note: Excluded group data about Fenty and Make Up For Ever, as to focus on each country’s best sellers and prevent skewing the graph more. It is best to note that there was more data collected for brands in the US, compared to the other countries, which may present the histogram differently.</em> <br><br></p>
 <p>Here, we can explicitly see the shape and outline of the distribution of each countries’ best foundation sellers. All the histograms of the US, Japan, and India skew towards the higher and lighter end of the shade spectrum. While, Nigeria skews towards the darker and lower end of the shade range, indicating that most of their brands cater to a darker skin tone for the majority of their products.</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#sort data according to darkest</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sortedDshadesdf <span class="op">=</span> sortedshadesdf.sort_values(<span class="st">'darkest'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -301,7 +298,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><em>Note: Green = US BIPOC-recommended Brands with BIPOC Founders <br> Red = US BIPOC-recommended Brands with White Founders</em> <br><br></p>
 <p>As seen in the plot, a majority of the Japanese and Indian Best Seller Foundations tend to be graphed towards the bottom, indicating that their “darkest” shade offered are the lightest of the data. Laws of Nature, a US BIPOC-recommended beauty brand led by a BIPOC founder and CEO, provides the darkest shade among the all the cosmetic companies.</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#sort data according to lightest</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sortedLshadesdf <span class="op">=</span> sortedshadesdf.sort_values(<span class="st">'lightest'</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
