@@ -208,7 +208,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="findings" class="level1">
 <h1>Findings</h1>
 <p>I created my visualizations in ways that would present more information that was easy to read. Color coordinating the different country groups is also helpful to remphasizing the question of diversity in beauty brands around the world.</p>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.patches <span class="im">as</span> mpatches</span>
@@ -216,7 +216,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>shadesdf <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/cassidytu/dh140/main/shades.csv'</span>)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>sortedshadesdf <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/cassidytu/dh140/main/shades_sorted.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="16">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>shadesdf.plot(x<span class="op">=</span><span class="st">'country'</span>, y<span class="op">=</span><span class="st">'L'</span>, </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>              kind<span class="op">=</span><span class="st">'scatter'</span>, </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>              title<span class="op">=</span><span class="st">'Foundation Range Across the World'</span>, </span>
@@ -225,11 +225,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#set x-axis ticks to country names</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'US'</span>, <span class="st">'Nigeria'</span>, <span class="st">'Japan'</span>, <span class="st">'India'</span>]</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>plt.xticks([<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], labels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="16">
-<pre><code>([&lt;matplotlib.axis.XTick at 0x7efc3d38b2e0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7efc3d38b2b0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7efc3d3c3310&gt;,
-  &lt;matplotlib.axis.XTick at 0x7efc3d3c3c70&gt;],
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>([&lt;matplotlib.axis.XTick at 0x7f4438d5a2f0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f4438d5a2c0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f4438d5bc70&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f4438dc2c80&gt;],
  [Text(0, 0, 'US'),
   Text(1, 0, 'Nigeria'),
   Text(2, 0, 'Japan'),
@@ -241,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><em>Note: I reorganized the data so that the groups were simplified to solely include countries as the main category. This would allow for a clear distinction between the different countries compared to the previous version. I also added labels to the x-axis ticks to make the graph easier to read.</em> <br><br></p>
 <p>The scatter plot clearly reveals that US beauty brands have a more extensive range in shades. It is also noticeable that in comparison to the other countries, Japan and India, have a cosmetic companies that have a tendency to cater to lighter skin tones.</p>
-<div class="cell" data-execution_count="17">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#extract sections of the dataset; best sellers of each country</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>us <span class="op">=</span> shadesdf.loc[<span class="dv">82</span>:<span class="dv">246</span>]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>nigeria <span class="op">=</span> shadesdf.loc[<span class="dv">444</span>:<span class="dv">493</span>]</span>
@@ -276,7 +276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><em>Note: Excluded group data about Fenty and Make Up For Ever, as to focus on each country’s best sellers and prevent skewing the graph more. It is best to note that there was more data collected for brands in the US, compared to the other countries, which may present the histogram differently.</em> <br><br></p>
 <p>Here, we can explicitly see the shape and outline of the distribution of each countries’ best foundation sellers. All the histograms of the US, Japan, and India skew towards the higher and lighter end of the shade spectrum. While, Nigeria skews towards the darker and lower end of the shade range, indicating that most of their brands cater to a darker skin tone for the majority of their products.</p>
-<div class="cell" data-execution_count="18">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#sort data according to darkest</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sortedDshadesdf <span class="op">=</span> sortedshadesdf.sort_values(<span class="st">'darkest'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -301,7 +301,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><em>Note: Green = US BIPOC-recommended Brands with BIPOC Founders <br> Red = US BIPOC-recommended Brands with White Founders</em> <br><br></p>
 <p>As seen in the plot, a majority of the Japanese and Indian Best Seller Foundations tend to be graphed towards the bottom, indicating that their “darkest” shade offered are the lightest of the data. Laws of Nature, a US BIPOC-recommended beauty brand led by a BIPOC founder and CEO, provides the darkest shade among the all the cosmetic companies.</p>
-<div class="cell" data-execution_count="19">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#sort data according to lightest</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sortedLshadesdf <span class="op">=</span> sortedshadesdf.sort_values(<span class="st">'lightest'</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
